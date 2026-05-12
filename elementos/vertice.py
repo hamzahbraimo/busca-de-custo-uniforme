@@ -5,5 +5,8 @@ class Vertice:
         self.objectivo = objectivo
         self.inicial: bool | bool = False
 
-    def get_nome(self):
+    def nome(self):
         return self.nome
+
+    def __lt__(self, outro):
+        return self.nome < outro.nome

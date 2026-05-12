@@ -35,30 +35,54 @@ class Grafo:
         self.add_vertice(destino)
 
         self.adjacencias[origem].append(Aresta(origem, destino, peso))
-        self.adjacencias[destino].append(Aresta(destino, origem, peso))
+        self.adjacencias[destino].append(Aresta(destino, origem, peso)) # bidirecional
         self.numero_arestas += 1
 
-    def contem_objectivo(self) -> bool:
+    def tem_objectivo(self) -> bool:
         for v in self.adjacencias:
             if v.objectivo:
                 return True
 
         return False
 
-    def imprimir_grafo(self) -> None:
-        if not self.contem_objectivo():
-            print('Nao existe estado objectivo')
-            return
+    def tem_inicial(self) -> bool:
+        for v in self.adjacencias:
+            if v.inicial:
+                return True
+
+        return False
+
+    # def imprimir_grafo(self) -> None:
+    #     if not self.contem_objectivo():
+    #         print('Nao existe estado objectivo')
+    #         return
+    #
+    #     for v in self.adjacencias:
+    #         if v.inicial:
+    #             print(f"*{v.nome} --> ", end=" ")
+    #         elif v.objectivo:
+    #             print(f"{v.nome}* --> ", end=" ")
+    #         else:
+    #             print(f"{v.nome} --> ", end=" ")
+    #
+    #         for a in self.adjacencias[v]:
+    #             if a.destino.objectivo:
+    #                 print(f"{a.destino.nome}({a.peso})*", end=" ")
+    #             else:
+    #                 print(f"{a.destino.nome}({a.peso})", end=" ")
+    #         print()
+
+    def inicial(self) -> Vertice | None:
+
+        for v in self.adjacencias:
+            if v.inicial:
+                return v
+
+        return None
+
+    def objectivo(self) -> Vertice | None:
 
         for v in self.adjacencias:
             if v.objectivo:
-                print(f"{v.nome}* --> ", end=" ")
-            else:
-                print(f"{v.nome} --> ", end=" ")
-
-            for a in self.adjacencias[v]:
-                if a.destino.objectivo:
-                    print(f"{a.destino.nome}({a.peso})*", end=" ")
-                else:
-                    print(f"{a.destino.nome}({a.peso})", end=" ")
-            print()
+                return v
+        return None
