@@ -35,9 +35,27 @@ class Grafo:
         self.adjacencias[destino].append(Aresta(destino, origem, peso))
         self.numero_arestas += 1
 
-    def imprimir_grafo(self) -> None:
+    def contem_objectivo(self) -> bool:
         for v in self.adjacencias:
-            print(f"{v.nome} --> ", end=" ")
+            if v.objectivo:
+                return True
+
+        return False
+
+    def imprimir_grafo(self) -> None:
+        if not self.contem_objectivo():
+            print('Nao existe estado objectivo')
+            return
+
+        for v in self.adjacencias:
+            if v.objectivo:
+                print(f"{v.nome}* --> ", end=" ")
+            else:
+                print(f"{v.nome} --> ", end=" ")
+
             for a in self.adjacencias[v]:
-                print(f"{a.destino.nome}({a.peso})", end=" ")
+                if a.destino.objectivo:
+                    print(f"{a.destino.nome}({a.peso})*", end=" ")
+                else:
+                    print(f"{a.destino.nome}({a.peso})", end=" ")
             print()

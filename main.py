@@ -3,9 +3,9 @@ from elementos.vertice import Vertice
 
 gr = Grafo()
 
-a = Vertice("A")
-b = Vertice("B")
-c = Vertice("C")
+a = Vertice("A", False)
+b = Vertice("B", False)
+c = Vertice("C", True)
 
 gr.add_aresta(a, b, 3)
 gr.add_aresta(a, c, 4)
