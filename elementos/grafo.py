@@ -24,9 +24,12 @@ class Grafo:
             return
 
         if self.numero_arestas > 0:
-           if self.existe_aresta(origem, destino):
+            if self.existe_aresta(origem, destino):
                 print(f"Ja existe uma aresta entre {origem.nome} e {destino.nome}")
                 return
+        else:
+            origem.inicial = True
+
 
         self.add_vertice(origem)
         self.add_vertice(destino)
