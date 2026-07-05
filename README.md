@@ -10,9 +10,8 @@
 
 ***
 # Características
-- **Optimalidade:**
-- **Completude:**
-- **Complexidade no pior caso:**
+- **Optimalidade:** sempre encontra o caminho de menor custo.
+- **Completude:** Se o caminho mínimo tiver um custo finito e o factor de ramificação for finito, o objetivo será encontrado.
 - **Limitações:** pode falhar ou entrar em loop infinito se o grafo tiver ciclos com custo menor ou igual a zero.
 
 ***
