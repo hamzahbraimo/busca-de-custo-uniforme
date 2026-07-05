@@ -1,19 +1,25 @@
 from bcu.busca_custo_uniforme import BCU
 from elementos.grafo import Grafo
 from elementos.vertice import Vertice
+import random
 
 gr = Grafo()
 
-a = Vertice("A", False)
-b = Vertice("B", False)
-c = Vertice("C", True)
-d = Vertice("D", False)
-#
-gr.add_aresta(a, b, 10)
-gr.add_aresta(a, c, 18)
-gr.add_aresta(a, d, 6)
-gr.add_aresta(b, c, 1)
-gr.add_aresta(d, c, 3)
+a = Vertice("1", False)
+b = Vertice("2", False)
+c = Vertice("3", False)
+d = Vertice("4", False)
+e = Vertice("5", False)
+f = Vertice("6", True)
+
+gr.add_aresta(a, b, 21)
+gr.add_aresta(a, c, 13)
+gr.add_aresta(b, c, 23)
+gr.add_aresta(b, d, 42)
+gr.add_aresta(c, d, 34)
+gr.add_aresta(c, e, 35)
+gr.add_aresta(d, e, 54)
+gr.add_aresta(d, f, 64)
 
 if gr.tem_inicial() and gr.tem_objectivo():
     bcu = BCU()
