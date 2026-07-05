@@ -1,3 +1,7 @@
-__pycache__/
-*.pyc
-*.pyo
+bcu/__pycache__/
+bcu/*.pyc
+bcu/*.pyo
+
+elementos/__pycache__/
+elementos/*.pyc
+elementos/*.pyo
