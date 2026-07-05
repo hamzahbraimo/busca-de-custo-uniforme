@@ -1,7 +1,6 @@
 from bcu.busca_custo_uniforme import BCU
 from elementos.grafo import Grafo
 from elementos.vertice import Vertice
-import random
 
 gr = Grafo()
 
