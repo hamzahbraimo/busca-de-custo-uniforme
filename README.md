@@ -15,6 +15,33 @@
 - **Limitações:** pode falhar ou entrar em loop infinito se o grafo tiver ciclos com custo menor ou igual a zero.
 
 ***
+# Exemplo de implementação
+```
+# Dentro do main.py
+
+a = Vertice("1", False) # nome, estado objectivo ou nao
+b = Vertice("2", False)
+c = Vertice("3", False)
+d = Vertice("4", False)
+e = Vertice("5", False)
+f = Vertice("6", True) # Estado objectivo
+
+gr.add_aresta(a, b, 21) # nó  origem, nó  destino, peso
+gr.add_aresta(a, c, 13)
+gr.add_aresta(b, c, 23)
+gr.add_aresta(b, d, 42)
+gr.add_aresta(c, d, 34)
+gr.add_aresta(c, e, 35)
+gr.add_aresta(d, e, 54)
+gr.add_aresta(d, f, 64)
+```
+
+Visualmente:
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/00187470-ecc1-415f-ba0a-b9af65629110" />
+
+Para este grafo, iria percorrer o caminho `1 -> 3 -> 4 -> 6` com um custo total de `111`.
+
+***
 # Referências
 - https://www.youtube.com/watch?v=IeE_5cMlrkE
 - https://www.youtube.com/watch?v=j5ab53LQkO0
